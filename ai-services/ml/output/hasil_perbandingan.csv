@@ -1,0 +1,6 @@
+model,CV_MAE_gram,CV_std,uji_MAE_gram,uji_RMSE_gram,uji_R2,uji_MAPE_persen,uji_MAE_cup
+0. Referensi (rata-rata yield semua buah),107.241,4.648,104.363,203.108,0.724,26.818,0.517
+1. Baseline (rata-rata yield per buah),19.476,1.154,17.54,36.745,0.991,4.35,0.092
+2. Regresi linear per buah,19.498,1.129,17.719,37.167,0.991,4.379,0.092
+3a. Random forest (bawaan),22.998,1.264,21.177,43.78,0.987,5.263,0.108
+3b. Random forest (tuning),20.346,1.047,18.478,38.186,0.99,4.653,0.097

@@ -1,0 +1,117 @@
+{
+  "_catatan": "Dihitung dari data SIMULASI tim DS. Ganti dengan data timbang nyata lalu jalankan ulang skrip.",
+  "jenis_data": "simulasi",
+  "model_terpilih": "1. Baseline (rata-rata yield per buah)",
+  "alasan": "baseline punya galat CV paling kecil, model yang lebih rumit tidak memberi perbaikan",
+  "cakupan_p10_p90_uji": 0.786,
+  "yield_per_buah": {
+    "alpukat": {
+      "mean": 0.7397,
+      "p10": 0.691,
+      "p90": 0.7981,
+      "n": 100
+    },
+    "blackberry": {
+      "mean": 0.9586,
+      "p10": 0.9407,
+      "p90": 0.9779,
+      "n": 100
+    },
+    "blueberry": {
+      "mean": 0.953,
+      "p10": 0.9323,
+      "p90": 0.9703,
+      "n": 100
+    },
+    "buah naga": {
+      "mean": 0.6716,
+      "p10": 0.619,
+      "p90": 0.7175,
+      "n": 100
+    },
+    "jambu merah": {
+      "mean": 0.7822,
+      "p10": 0.7375,
+      "p90": 0.83,
+      "n": 100
+    },
+    "jeruk": {
+      "mean": 0.7307,
+      "p10": 0.693,
+      "p90": 0.7654,
+      "n": 100
+    },
+    "kelapa": {
+      "mean": 0.2577,
+      "p10": 0.1842,
+      "p90": 0.3206,
+      "n": 100
+    },
+    "mangga": {
+      "mean": 0.7081,
+      "p10": 0.6512,
+      "p90": 0.7542,
+      "n": 100
+    },
+    "melon": {
+      "mean": 0.5105,
+      "p10": 0.4591,
+      "p90": 0.5569,
+      "n": 100
+    },
+    "nanas": {
+      "mean": 0.5097,
+      "p10": 0.4597,
+      "p90": 0.5562,
+      "n": 100
+    },
+    "pakcoy": {
+      "mean": 0.8797,
+      "p10": 0.8389,
+      "p90": 0.9148,
+      "n": 100
+    },
+    "pepaya": {
+      "mean": 0.6208,
+      "p10": 0.573,
+      "p90": 0.6618,
+      "n": 100
+    },
+    "pisang": {
+      "mean": 0.6393,
+      "p10": 0.5942,
+      "p90": 0.6783,
+      "n": 100
+    },
+    "semangka": {
+      "mean": 0.511,
+      "p10": 0.466,
+      "p90": 0.561,
+      "n": 100
+    },
+    "sirsak": {
+      "mean": 0.6681,
+      "p10": 0.6097,
+      "p90": 0.7168,
+      "n": 100
+    },
+    "stroberi": {
+      "mean": 0.938,
+      "p10": 0.9192,
+      "p90": 0.9563,
+      "n": 100
+    },
+    "terong belanda": {
+      "mean": 0.7006,
+      "p10": 0.6578,
+      "p90": 0.7424,
+      "n": 100
+    },
+    "tomat": {
+      "mean": 0.9146,
+      "p10": 0.8859,
+      "p90": 0.9385,
+      "n": 100
+    }
+  }
+}

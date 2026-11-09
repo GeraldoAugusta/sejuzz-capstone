@@ -1,0 +1,203 @@
+{
+  "_catatan": "Dihasilkan dari data/data_buah_clean.csv oleh scripts/build_fruit_table.py. susut_persen = (1 - rata-rata yield) x 100. gram_per_cup null = belum ada data komposisi menu.",
+  "fruits": {
+    "alpukat": {
+      "susut_persen": 26.03,
+      "susut_persen_min": 14.19,
+      "susut_persen_max": 34.76,
+      "berat_rata_rata_gram": 247.0,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "blackberry": {
+      "susut_persen": 4.14,
+      "susut_persen_min": 0.84,
+      "susut_persen_max": 7.63,
+      "berat_rata_rata_gram": 124.2,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "blueberry": {
+      "susut_persen": 4.7,
+      "susut_persen_min": 0.92,
+      "susut_persen_max": 9.01,
+      "berat_rata_rata_gram": 125.7,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "buah naga": {
+      "susut_persen": 32.84,
+      "susut_persen_min": 24.92,
+      "susut_persen_max": 42.22,
+      "berat_rata_rata_gram": 390.0,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "jambu merah": {
+      "susut_persen": 21.78,
+      "susut_persen_min": 10.61,
+      "susut_persen_max": 30.73,
+      "berat_rata_rata_gram": 206.2,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "jeruk": {
+      "susut_persen": 26.93,
+      "susut_persen_min": 18.47,
+      "susut_persen_max": 32.79,
+      "berat_rata_rata_gram": 180.9,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "kelapa": {
+      "susut_persen": 74.23,
+      "susut_persen_min": 60.95,
+      "susut_persen_max": 85.92,
+      "berat_rata_rata_gram": 879.3,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "mangga": {
+      "susut_persen": 29.19,
+      "susut_persen_min": 18.53,
+      "susut_persen_max": 38.44,
+      "berat_rata_rata_gram": 358.2,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "melon": {
+      "susut_persen": 48.95,
+      "susut_persen_min": 38.7,
+      "susut_persen_max": 61.25,
+      "berat_rata_rata_gram": 1210.1,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "nanas": {
+      "susut_persen": 49.03,
+      "susut_persen_min": 36.78,
+      "susut_persen_max": 57.99,
+      "berat_rata_rata_gram": 1213.1,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "pakcoy": {
+      "susut_persen": 12.03,
+      "susut_persen_min": 5.86,
+      "susut_persen_max": 20.22,
+      "berat_rata_rata_gram": 238.3,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "pepaya": {
+      "susut_persen": 37.92,
+      "susut_persen_min": 25.86,
+      "susut_persen_max": 45.07,
+      "berat_rata_rata_gram": 1218.0,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "pisang": {
+      "susut_persen": 36.07,
+      "susut_persen_min": 27.59,
+      "susut_persen_max": 44.74,
+      "berat_rata_rata_gram": 128.3,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "semangka": {
+      "susut_persen": 48.9,
+      "susut_persen_min": 39.14,
+      "susut_persen_max": 60.18,
+      "berat_rata_rata_gram": 3381.2,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "sirsak": {
+      "susut_persen": 33.19,
+      "susut_persen_min": 21.42,
+      "susut_persen_max": 42.61,
+      "berat_rata_rata_gram": 743.5,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "stroberi": {
+      "susut_persen": 6.2,
+      "susut_persen_min": 1.3,
+      "susut_persen_max": 9.45,
+      "berat_rata_rata_gram": 258.2,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "terong belanda": {
+      "susut_persen": 29.94,
+      "susut_persen_min": 20.83,
+      "susut_persen_max": 40.62,
+      "berat_rata_rata_gram": 87.7,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    },
+    "tomat": {
+      "susut_persen": 8.55,
+      "susut_persen_min": 4.72,
+      "susut_persen_max": 13.68,
+      "berat_rata_rata_gram": 117.4,
+      "jumlah_sampel": 100,
+      "gram_per_cup": {
+        "small": 200.0,
+        "large": 250.0
+      }
+    }
+  }
+}
