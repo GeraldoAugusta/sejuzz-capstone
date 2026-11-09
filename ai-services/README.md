@@ -1,45 +1,55 @@
-# Sejuzz AI
+# Sejuzz AI Services
 
-Folder `ai-services/` pada repo tim. Asisten AI dan modul perhitungan untuk aplikasi estimasi hasil produksi jus Sejuzz (Capstone Asah 2026, A26-CS002).
+Layanan AI untuk aplikasi estimasi hasil produksi jus Sejuzz (Capstone Asah 2026, tim A26-CS002).
 
 ## Masalah yang diselesaikan
-(TODO: isi setelah Tahap 3. Jelaskan masalah yang diselesaikan model AI.)
+Owner dan karyawan Sejuzz memperkirakan jumlah cup jus dari buah hanya dengan pengalaman, sehingga kebutuhan buah sulit disiapkan dan hasil antar karyawan berbeda. Layanan ini menyelesaikan tiga hal:
+1. **Estimasi cup:** rumus menghitung berat kulit, isi, jumlah cup, dan sisa buah dari jenis buah, berat, dan ukuran cup.
+2. **Rentang estimasi:** model regresi yield dari data timbang tim Data Science memberi kisaran wajar (persentil 10 sampai 90), bukan satu angka tunggal.
+3. **Asisten AI:** pengguna bertanya dengan kalimat bebas ("5 kilo semangka jadi berapa cup large?"). LLM memahami kalimat dan menjelaskan hasil; angka selalu berasal dari rumus, bukan dari LLM. Pertanyaan di luar konteks ditolak dengan sopan.
 
-## Struktur
-- `app/` : service FastAPI (rumus, endpoint, nanti LLM)
-- `data/` : dataset dari tim Data Science (`data_buah_clean.csv`)
-- `scripts/` : skrip pengolah data
-- `tests/` : unit test
+## Arsitektur
+Frontend -> Backend Express -> FastAPI (folder ini). Frontend tidak memanggil layanan ini langsung.
+- `POST /api/v1/calculate`: perhitungan estimasi dan rentang.
+- `POST /api/v1/ai/explain`: hasil hitung + penjelasan LLM.
+- `POST /api/v1/ai/chat`: asisten kalimat bebas (intent: hitung_estimasi, cek_takaran, info_susut_buah, bantuan_penggunaan, out_of_scope).
+- Takaran per cup dikirim backend dari database (`gram_per_cup` / `takaran`); takaran bawaan hanya cadangan.
+- Dokumentasi interaktif: `/docs` (Swagger). Kontrak lengkap: `docs/KONTRAK_API.md`.
 
-## Menjalankan
-```bash
-python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
-pip install -r requirements.txt
-cp .env.example .env
-pytest -q
-uvicorn app.main:app --reload     # Swagger: http://localhost:8000/docs
-```
+## Fitur generatif (API proprietary)
+Google Gemini lewat REST API, dengan prompt terstruktur (instruksi sistem, contoh few-shot, data JSON) di `app/prompts.py` dan `app/nlu.py`. Keluaran LLM divalidasi ulang oleh kode, dan jawaban penjelasan dibuang bila tidak memuat jumlah cup hasil rumus.
+
+## Keandalan
+Timeout, retry untuk error sementara (500/503), model cadangan (`LLM_FALLBACK_MODELS`), batas waktu total, dan balasan template bila LLM gagal. Ekstraksi kalimat jatuh ke aturan kata kunci bila LLM tidak bisa dipakai. Input tidak valid dijawab dengan format error seragam `{"error": {"code", "message"}}`.
+
+## Guardrail
+Pertanyaan di luar konteks dijawab dengan teks penolakan tetap tanpa memanggil LLM. Hasil uji `scripts/test_guardrail.py` (12 pertanyaan di luar konteks + 4 kontrol):
+
+**TEMPEL tabel hasil dari terminal Anda di sini, lengkap dengan tanggal uji dan model yang dipakai.**
+
+## Model regresi yield (folder `ml/`)
+Memperkirakan berat bagian layak dari jenis buah dan berat utuh. Pembagian data 80/20 per buah, cross-validation 5 lipatan untuk memilih model, tuning random forest dengan grid search, data uji dipakai sekali di akhir. Data seimbang (100 sampel per buah).
+
+**TEMPEL isi `ml/output/tabel_perbandingan.md` dari laptop Anda di sini.**
+
+Catatan: data timbang bersifat **simulasi** dan R2 tinggi terutama karena berat layak memang sebanding dengan berat utuh, sehingga model referensi (satu yield untuk semua buah) disertakan sebagai pembanding. Hasil ini menggambarkan data simulasi, bukan akurasi pada buah sungguhan.
 
 ## Sumber data dan library
-- Data timbang buah: `data/data_buah_clean.csv` (tim Data Science; 18 buah x 100 sampel, hasil penggabungan dataset per buah). Keterangan nyata/simulasi: TODO konfirmasi DS.
-- Takaran per cup: `data/takaran_per_cup.csv`, nilai ASUMSI (200 g Sedang/small dari brief proyek, 250 g Besar/large asumsi tim) dari `data/Kalkulator_Yield_Sejuzz.xlsx`. Ganti bila ada data resep asli Sejuzz, lalu jalankan `python scripts/build_fruit_table.py`.
-- Library: lihat `requirements.txt`.
-(TODO: lengkapi seiring pengerjaan.)
+- `data/data_buah_clean.csv`: data timbang buah dari tim Data Science (simulasi, 18 buah x 100 sampel).
+- `data/Kalkulator_Yield_Sejuzz.xlsx` dan `data/takaran_per_cup.csv`: rumus dan takaran per cup. Takaran (200 g small, 250 g large) adalah asumsi tim.
+- API: Google Gemini (gemini-3.5-flash dengan model cadangan).
+- Library layanan: FastAPI, Uvicorn, Pydantic, httpx, python-dotenv (lihat `requirements.txt`). Library eksperimen: pandas, numpy, scikit-learn, matplotlib, joblib (`requirements-ml.txt`).
 
-## Progres checklist
-Lihat bagian bawah setelah tiap tahap selesai.
+## Menjalankan
+    python3 -m venv .venv && source .venv/bin/activate
+    python3 -m pip install -r requirements.txt
+    cp .env.example .env        # isi LLM_API_KEY
+    python3 -m pytest tests -q
+    python3 -m uvicorn app.main:app --reload
 
-## Asisten AI (alur /api/v1/ai/chat)
-1. LLM (Gemini, structured prompt, keluaran JSON) mengekstrak intent dan entitas dari kalimat bebas.
-2. Hasil LLM divalidasi ulang oleh kode (`app/nlu.py::normalize`); LLM tidak dipercaya begitu saja.
-3. Bila LLM gagal atau keluarannya tidak valid, dipakai ekstraksi aturan kata kunci.
-4. Angka jawaban selalu dari rumus/data (`calculator.py`, `fruits.json`), bukan dari LLM.
-5. Pertanyaan di luar konteks ditolak dengan jawaban tetap (tanpa LLM). Hasil uji guardrail: jalankan `scripts/test_guardrail.py` lalu tempel tabelnya di sini.
+## Deploy
+- URL: **TEMPEL URL Back4app Anda** (Back4app Containers, tingkat gratis dengan batas jam aktif).
+- Semua endpoint `/api/v1/...` wajib header `X-API-Key`; `/health` dan `/docs` terbuka.
 
-## Model regresi yield (folder ml/)
-Tujuan: memperkirakan berat bagian layak dari jenis buah dan berat utuh, serta memberi rentang estimasi cup.
-- Data: `data/data_buah_clean.csv` (tim DS, **data simulasi**, 18 buah x 100 sampel). Hasil model menggambarkan data simulasi, bukan akurasi pada buah nyata.
-- Preprocessing, pembagian data (80/20 per buah), perbandingan model, dan tuning: `ml/02_latih_bandingkan.py`.
-- Jalankan: `pip install -r requirements-ml.txt` lalu `python ml/02_latih_bandingkan.py`.
-- Tabel perbandingan (tempel dari `ml/output/tabel_perbandingan.md` hasil jalan Anda): TODO
-- Rentang estimasi (P10-P90 yield per buah) tampil di field `rentang` pada `/api/v1/calculate`.
+## Keterbatasan
+Data simulasi, takaran asumsi, penjelasan AI bergantung pada ketersediaan Gemini (ada balasan template sebagai cadangan), dan batas jam gratis hosting.
