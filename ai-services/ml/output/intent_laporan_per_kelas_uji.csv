@@ -1,0 +1,9 @@
+,precision,recall,f1-score,support
+hitung_estimasi,0.88,0.957,0.917,23.0
+cek_takaran,0.913,1.0,0.955,21.0
+info_susut_buah,0.95,0.905,0.927,21.0
+bantuan_penggunaan,0.875,0.667,0.757,21.0
+out_of_scope,0.865,0.914,0.889,35.0
+accuracy,0.893,0.893,0.893,0.893
+macro avg,0.897,0.888,0.889,121.0
+weighted avg,0.893,0.893,0.889,121.0

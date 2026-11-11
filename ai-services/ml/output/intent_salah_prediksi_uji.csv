@@ -1,0 +1,14 @@
+text,intent,penulis,prediksi
+"kalau jeruk 2 kg, kira-kira berapa persen yang jadi kulit sama bijinya?",info_susut_buah,Revi,hitung_estimasi
+"kalau beli 1 kg jambu biji, bagian yang tidak bisa dimakan kira-kira berapa persen?",info_susut_buah,Nyoman,hitung_estimasi
+hasil estimasinya muncul dalam jumlah cup atau gram ya?,bantuan_penggunaan,Nyoman,cek_takaran
+"kenapa hasil perhitungannya ditampilkan dalam bentuk rentang, bukan satu angka pasti?",bantuan_penggunaan,Aria,out_of_scope
+"kalau nama buahnya nggak ada di daftar, saya harus bagaimana?",bantuan_penggunaan,Fadillah,out_of_scope
+apakah berat buah harus dimasukkan dalam kilogram atau boleh gram?,bantuan_penggunaan,Nyoman,out_of_scope
+kok tombol hitungnya nggak bisa dipencet ya? ada yang perlu diisi dulu?,bantuan_penggunaan,Aria,out_of_scope
+"aku udah masukin 2 kg tapi hasilnya nggak keluar, harus klik apa lagi?",bantuan_penggunaan,Nyoman,out_of_scope
+"ada 800 gr alpukat, cukup buat berapa cup medium?",hitung_estimasi,Revi,cek_takaran
+"aku mau belajar rumus luas segitiga, bisa jelasin?",out_of_scope,Nyoman,bantuan_penggunaan
+"aku lupa password email, cara resetnya gimana?",out_of_scope,Nyoman,bantuan_penggunaan
+tombol hitung dimana,bantuan_penggunaan,Revi,hitung_estimasi
+kandungan vitamin C di jambu merah berapa,out_of_scope,Aria,info_susut_buah

@@ -84,6 +84,8 @@ class ChatResponse(BaseModel):
     calculation: Optional[CalculateResponse] = None
     missing: list[str] = []
     extraction: dict
-    extraction_source: Literal["llm", "rules"]
+    extraction_source: Literal["llm", "rules", "none"]
     explanation_source: Optional[Literal["llm", "fallback"]] = None
     model: Optional[str] = None
+    intent_source: Optional[Literal["classifier", "llm", "rules"]] = Field(None, description="Siapa yang menentukan intent")
+    intent_confidence: Optional[float] = Field(None, description="Keyakinan classifier (0-1) bila tersedia")

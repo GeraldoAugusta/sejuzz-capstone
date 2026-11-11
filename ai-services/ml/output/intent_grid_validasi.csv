@@ -1,0 +1,10 @@
+model,hyperparameter,val_macro_F1,val_akurasi
+Logistic Regression,0.3,0.9036,0.9036
+Logistic Regression,1.0,0.9003,0.9
+Logistic Regression,3.0,0.8834,0.8821
+Logistic Regression,10.0,0.8867,0.8857
+Logistic Regression,30.0,0.9002,0.9
+Complement Naive Bayes,1.0,0.8271,0.825
+Complement Naive Bayes,0.3,0.8072,0.8107
+Complement Naive Bayes,0.1,0.8011,0.8036
+Complement Naive Bayes,0.03,0.7094,0.7071

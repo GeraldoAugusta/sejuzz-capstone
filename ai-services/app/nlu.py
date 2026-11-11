@@ -156,6 +156,25 @@ def extract_rules(message: str) -> dict:
             "amount": amount, "unit": unit, "cup_size": size}
 
 
+_BUTUH = {"cek_takaran": ("fruit",), "info_susut_buah": ("fruit",),
+          "hitung_estimasi": ("fruit", "amount", "unit", "cup_size")}
+
+
+def extract_entities(message: str, intent: str):
+    """Intent sudah ditentukan classifier; ambil entitas. Aturan dulu (murah), LLM bila entitas belum lengkap.
+
+    Kembalikan (hasil, sumber, model).
+    """
+    rules = extract_rules(message)
+    if all(rules.get(k) is not None for k in _BUTUH.get(intent, ())):
+        return {**rules, "intent": intent}, "rules", None
+    try:
+        res, model = extract_llm(message)
+        return {**res, "intent": intent}, "llm", model
+    except (llm.LLMError, ValueError):
+        return {**rules, "intent": intent}, "rules", None
+
+
 def extract(message: str):
     """Kembalikan (hasil, sumber, model). sumber = 'llm' atau 'rules'."""
     try:

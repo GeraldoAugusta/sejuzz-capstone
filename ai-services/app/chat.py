@@ -1,7 +1,8 @@
 """Alur /ai/chat tanpa FastAPI: pahami kalimat, jawab sesuai intent, selalu pakai angka dari rumus/data."""
+import os
 import re
 
-from app import explain, fallback, nlu, service, store
+from app import explain, fallback, intent_model, nlu, service, store
 
 REFUSAL = ("Maaf, aku cuma bisa bantu soal estimasi cup jus Sejuzz: berapa cup dari sejumlah buah, "
            "takaran per cup, atau susut buah. Coba tanya, misalnya: \"5 kg semangka jadi berapa cup large?\"")
@@ -41,13 +42,43 @@ def _fruit_list() -> str:
     return ", ".join(store.list_fruits())
 
 
+KOSONG = {"fruit": None, "fruit_unknown": None, "amount": None, "unit": None, "cup_size": None}
+
+
+def _ambang(intent: str) -> float:
+    """Penolakan langsung (out_of_scope) butuh keyakinan lebih tinggi: salah menolak lebih merugikan daripada salah meneruskan."""
+    if intent == "out_of_scope":
+        return float(os.getenv("INTENT_THRESHOLD_OOS", "0.7"))
+    return float(os.getenv("INTENT_THRESHOLD", "0.6"))
+
+
+def _arahkan(message: str):
+    """Tentukan intent dan entitas. Kembalikan (ext, sumber_ekstraksi, sumber_intent, confidence)."""
+    cls = intent_model.predict(message)
+    if cls and cls["confidence"] >= _ambang(cls["intent"]):
+        intent = cls["intent"]
+        if intent in ("out_of_scope", "bantuan_penggunaan"):  # tidak butuh entitas, LLM tidak dipanggil
+            return {**KOSONG, "intent": intent}, "none", "classifier", cls["confidence"]
+        ext, esrc, _ = nlu.extract_entities(message, intent)
+        return ext, esrc, "classifier", cls["confidence"]
+    ext, src, _ = nlu.extract(message)  # classifier tidak ada / tidak yakin: jalur LLM lalu aturan
+    return ext, src, src, (cls["confidence"] if cls else None)
+
+
 def handle_message(message: str, takaran: dict | None = None) -> dict:
     """takaran (opsional): takaran per cup dari backend, diutamakan di atas takaran bawaan service."""
     tk = _norm_takaran(takaran)
     if _is_greeting(message):
-        kosong = {"fruit": None, "amount": None, "unit": None, "cup_size": None}
-        return _resp("bantuan_penggunaan", "answered", GREETING_REPLY, kosong, "rules")
-    ext, src, _ = nlu.extract(message)
+        res = _resp("bantuan_penggunaan", "answered", GREETING_REPLY, KOSONG, "none")
+        res.update({"intent_source": "rules", "intent_confidence": None})
+        return res
+    ext, src, isrc, conf = _arahkan(message)
+    res = _jawab(ext, src, tk)
+    res.update({"intent_source": isrc, "intent_confidence": None if conf is None else round(conf, 3)})
+    return res
+
+
+def _jawab(ext: dict, src: str, tk: dict) -> dict:
     intent = ext["intent"]
     n = fallback.fmt_num
 

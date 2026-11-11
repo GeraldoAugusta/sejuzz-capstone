@@ -1,0 +1,4 @@
+model,CV_macroF1,valid_macroF1,uji_akurasi,uji_macroF1
+"0. Aturan kata kunci (pembanding, tanpa pelatihan)",,0.55,0.752,0.722
+1. TF-IDF + Logistic Regression (param 0.3),0.999,0.904,0.893,0.889
+2. TF-IDF + Complement Naive Bayes (param 1.0),0.993,0.827,0.826,0.824
