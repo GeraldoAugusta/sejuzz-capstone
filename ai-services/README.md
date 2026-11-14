@@ -1,6 +1,6 @@
 # Sejuzz AI Services
 
-Layanan AI untuk aplikasi estimasi hasil produksi jus Sejuzz (Capstone Asah 2026, tim A26-CS002). Folder ini berisi service FastAPI, empat model buatan tim, sistem RAG, dan dokumentasinya. Perubahan terhadap Project Plan dijelaskan di dokumen project brief.
+Layanan AI untuk aplikasi estimasi hasil produksi jus Sejuzz (Capstone Asah 2026, tim A26-CS002). Folder ini berisi service FastAPI, empat model buatan tim, sistem RAG, dan dokumentasinya.
 
 ## Masalah yang diselesaikan
 
