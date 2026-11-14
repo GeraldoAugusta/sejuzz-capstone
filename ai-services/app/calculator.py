@@ -1,4 +1,4 @@
-"""Modul rumus Sejuzz (murni Python, tanpa dependensi framework agar mudah diuji).
+"""Modul rumus Sejuzz (murni Python
 
 Rumus (sumber kebenaran angka, TIDAK diserahkan ke LLM):
     berat_total_g = berat_kg * 1000        (unit "kg")

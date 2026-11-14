@@ -1,0 +1,33 @@
+pertanyaan,id_diharapkan,jenis
+aplikasi ini sebenarnya untuk apa,tentang-aplikasi,dalam_topik
+gimana cara pakai kalkulator estimasinya,cara-pakai,dalam_topik
+rumus menghitung jumlah cup itu bagaimana,rumus-hitung,dalam_topik
+apa maksudnya susut buah,arti-susut,dalam_topik
+bisa isi berat pakai gram nggak,satuan-input,dalam_topik
+ukuran cup medium ada nggak,ukuran-cup,dalam_topik
+takaran awal per cup berapa gram,takaran-awal,dalam_topik
+siapa yang boleh mengubah takaran,ubah-takaran,dalam_topik
+kenapa hasilnya ada kisaran cup,rentang-estimasi,dalam_topik
+datanya asli atau simulasi,data-simulasi,dalam_topik
+buah apa saja yang bisa dihitung,buah-tersedia,dalam_topik
+kalau buahku nggak ada di daftar gimana,buah-tidak-ada,dalam_topik
+bisa hitung jus campuran mangga dan nanas sekaligus,satu-buah,dalam_topik
+kok hasilnya 0 cup,nol-cup,dalam_topik
+sisa buah itu artinya apa,sisa-buah,dalam_topik
+estimasinya bisa dipercaya nggak,akurasi-estimasi,dalam_topik
+kenapa rentang kelapa lebar banget,rentang-lebar,dalam_topik
+muncul pesan error jumlah harus lebih dari nol,pesan-error,dalam_topik
+chat ini bisa nanya apa aja,fitur-chat,dalam_topik
+apakah bisa mengelola stok dan transaksi,batas-asisten,dalam_topik
+kenapa penjelasannya jadi singkat banget,asisten-sibuk,dalam_topik
+siapa saja pengguna aplikasi ini,pengguna-aplikasi,dalam_topik
+cara membaca angka-angka hasilnya,baca-hasil,dalam_topik
+siapa presiden indonesia sekarang,,luar_topik
+tolong buatkan puisi tentang hujan,,luar_topik
+berapa harga semangka per kilo di pasar,,luar_topik
+cara menanam pepaya di pot,,luar_topik
+resep nasi goreng yang enak,,luar_topik
+bagaimana cuaca besok di jambi,,luar_topik
+jelaskan tentang bitcoin,,luar_topik
+cara memperbaiki laptop yang lambat,,luar_topik
+siapa pemenang piala dunia 2022,,luar_topik

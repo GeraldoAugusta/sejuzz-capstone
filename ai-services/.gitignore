@@ -4,3 +4,8 @@ __pycache__/
 .venv/
 .pytest_cache/
 ml/output/*.png
+
+# macOS
+.DS_Store
+**/.DS_Store
+data/sentimen/

@@ -1,14 +1,3 @@
-"""Langkah 2 model regresi: preprocessing, pembagian data, perbandingan model, tuning, rentang estimasi.
-
-Tujuan model: memprediksi berat bagian layak (gram) dari jenis buah dan berat buah utuh,
-serta memberi rentang (persentil 10 sampai 90) dari sebaran yield per buah.
-
-Jalankan dari folder ai-services/ (pip install -r requirements-ml.txt):
-    python ml/02_latih_bandingkan.py
-
-CATATAN: data DS bersifat SIMULASI. Angka metrik menggambarkan kualitas model pada data simulasi,
-BUKAN akurasi pada buah sungguhan. Jalankan ulang skrip ini bila data nyata sudah tersedia.
-"""
 import json
 from pathlib import Path
 
@@ -21,7 +10,7 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from sklearn.model_selection import GridSearchCV, StratifiedKFold, train_test_split
 
 SEED = 42
-JENIS_DATA = "simulasi"  # ganti ke "nyata" bila data timbang asli sudah dipakai
+JENIS_DATA = "simulasi"  # ubah "nyata" bila memakai data timbang asli
 TAKARAN_CUP_CONTOH = 200.0  # gram per cup small (asumsi), hanya untuk mengukur galat dalam satuan cup
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "ml" / "output"

@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Depends
 from fastapi.responses import JSONResponse
 
-from app import chat, explain
+from app import chat, explain, rag
 from app.routers.calculate import compute
 from app.security import verify_api_key
-from app.schemas import CalculateRequest, ChatRequest, ChatResponse, ErrorResponse, ExplainResponse
+from app.schemas import CalculateRequest, ChatRequest, ChatResponse, ErrorResponse, ExplainResponse, FaqRequest, FaqResponse
 
 router = APIRouter(prefix="/api/v1/ai", tags=["Asisten AI"], dependencies=[Depends(verify_api_key)])
 
@@ -30,3 +30,16 @@ def chat_endpoint(req: ChatRequest):
     if not pesan:
         return JSONResponse(status_code=400, content={"error": {"code": "EMPTY_MESSAGE", "message": "Pesan tidak boleh kosong."}})
     return chat.handle_message(pesan, req.takaran)
+
+
+@router.post("/faq", response_model=FaqResponse, responses={400: {"model": ErrorResponse}})
+def faq_endpoint(req: FaqRequest):
+    """Tanya jawab panduan aplikasi dengan RAG (embedding + vector database + LLM)."""
+    pertanyaan = req.question.strip()
+    if not pertanyaan:
+        return JSONResponse(status_code=400, content={"error": {"code": "EMPTY_MESSAGE", "message": "Pertanyaan tidak boleh kosong."}})
+    r = rag.jawab(pertanyaan)
+    if r is None:
+        return {"status": "not_found", "answer": chat.HELP, "rag": None, "model": None}
+    return {"status": "answered", "answer": r["teks"], "model": r["model"],
+            "rag": {"sumber": r["sumber"], "skor": r["skor"], "mesin": r["mesin"], "embedding": r["embedding"]}}

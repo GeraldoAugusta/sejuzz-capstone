@@ -6,7 +6,7 @@ from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
-from app.routers import ai, calculate
+from app.routers import ai, calculate, sentimen
 from app.security import UnauthorizedError
 
 load_dotenv()
@@ -53,3 +53,4 @@ def health():
 
 app.include_router(calculate.router)
 app.include_router(ai.router)
+app.include_router(sentimen.router)

@@ -1,0 +1,14 @@
+{
+  "dibuat": "2026-11-12T16:53:56",
+  "sklearn_version": "1.9.1",
+  "fitur": "TF-IDF character n-gram 2-5 (char_wb)",
+  "model": "LinearSVC (class_weight=balanced)",
+  "bobot_sejuzz": 10,
+  "jumlah_sejuzz": 120,
+  "jumlah_negatif_sejuzz": 8,
+  "jumlah_publik": 11010,
+  "label": [
+    "negatif",
+    "positif"
+  ]
+}

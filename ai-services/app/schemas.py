@@ -77,6 +77,25 @@ class ChatRequest(BaseModel):
         return v
 
 
+class RagInfo(BaseModel):
+    sumber: list[str] = Field(..., description="Id potongan basis pengetahuan yang dipakai menjawab")
+    skor: float = Field(..., description="Kemiripan (cosine) potongan teratas, 0-1")
+    mesin: Literal["faiss", "python"] = Field(..., description="Mesin pencari vektor yang dipakai")
+    embedding: str = Field(..., description="Nama model embedding")
+
+
+class FaqRequest(BaseModel):
+    model_config = ConfigDict(json_schema_extra={"examples": [{"question": "kenapa hasilnya ada kisaran cup?"}]})
+    question: str = Field(..., min_length=1, max_length=300)
+
+
+class FaqResponse(BaseModel):
+    status: Literal["answered", "not_found"]
+    answer: str
+    rag: Optional[RagInfo] = None
+    model: Optional[str] = None
+
+
 class ChatResponse(BaseModel):
     intent: str
     status: Literal["answered", "need_more_info", "refused"]
@@ -89,3 +108,4 @@ class ChatResponse(BaseModel):
     model: Optional[str] = None
     intent_source: Optional[Literal["classifier", "llm", "rules"]] = Field(None, description="Siapa yang menentukan intent")
     intent_confidence: Optional[float] = Field(None, description="Keyakinan classifier (0-1) bila tersedia")
+    rag: Optional[RagInfo] = Field(None, description="Terisi bila jawaban panduan berasal dari RAG")

@@ -1,9 +1,3 @@
-"""Langkah 1 model regresi: periksa dataset DS (kualitas, sebaran, outlier).
-
-Jalankan dari folder ai-services/ (butuh: pip install -r requirements-ml.txt):
-    python ml/01_eksplorasi_data.py
-Keluaran: tabel di layar, ml/output/ringkasan_per_buah.csv, dan (bila matplotlib ada) ml/output/yield_per_buah.png
-"""
 from pathlib import Path
 
 import pandas as pd

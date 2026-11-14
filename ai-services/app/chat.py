@@ -2,7 +2,7 @@
 import os
 import re
 
-from app import explain, fallback, intent_model, nlu, service, store
+from app import explain, fallback, intent_model, nlu, rag, service, store
 
 REFUSAL = ("Maaf, aku cuma bisa bantu soal estimasi cup jus Sejuzz: berapa cup dari sejumlah buah, "
            "takaran per cup, atau susut buah. Coba tanya, misalnya: \"5 kg semangka jadi berapa cup large?\"")
@@ -35,7 +35,7 @@ def _norm_takaran(t) -> dict:
 def _resp(intent, status, reply, ext, ext_source, calc=None, missing=None, expl_source=None, model=None):
     return {"intent": intent, "status": status, "reply": reply, "calculation": calc,
             "missing": missing or [], "extraction": {k: ext.get(k) for k in ("fruit", "amount", "unit", "cup_size")},
-            "extraction_source": ext_source, "explanation_source": expl_source, "model": model}
+            "extraction_source": ext_source, "explanation_source": expl_source, "model": model, "rag": None}
 
 
 def _fruit_list() -> str:
@@ -73,19 +73,24 @@ def handle_message(message: str, takaran: dict | None = None) -> dict:
         res.update({"intent_source": "rules", "intent_confidence": None})
         return res
     ext, src, isrc, conf = _arahkan(message)
-    res = _jawab(ext, src, tk)
+    res = _jawab(ext, src, tk, message)
     res.update({"intent_source": isrc, "intent_confidence": None if conf is None else round(conf, 3)})
     return res
 
 
-def _jawab(ext: dict, src: str, tk: dict) -> dict:
+def _jawab(ext: dict, src: str, tk: dict, message: str) -> dict:
     intent = ext["intent"]
     n = fallback.fmt_num
 
     if intent == "out_of_scope":
         return _resp(intent, "refused", REFUSAL, ext, src)
     if intent == "bantuan_penggunaan":
-        return _resp(intent, "answered", HELP, ext, src)
+        r = rag.jawab(message)  # RAG bila tersedia dan yakin; selain itu panduan tetap
+        if r is None:
+            return _resp(intent, "answered", HELP, ext, src)
+        res = _resp(intent, "answered", r["teks"], ext, src, expl_source="llm", model=r["model"])
+        res["rag"] = {"sumber": r["sumber"], "skor": r["skor"], "mesin": r["mesin"], "embedding": r["embedding"]}
+        return res
 
     if ext["fruit"] is None:
         if ext["fruit_unknown"]:

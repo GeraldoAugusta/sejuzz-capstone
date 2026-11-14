@@ -1,16 +1,3 @@
-"""Langkah 1 model intent: buat dataset kalimat berlabel dari template + daftar buah dari data DS.
-
-Jalankan dari folder ai-services/ (butuh pandas):
-    python3 ml/03_buat_dataset_intent.py
-
-Keluaran di ml/intent_data/:
-  intent_train_pool.csv        kalimat dari template LATIH (untuk melatih)
-  intent_heldout_sintetis.csv  kalimat dari template yang BERBEDA (uji ketahanan terhadap gaya kalimat baru)
-  intent_uji_manual_TEMPLATE.csv  kerangka kosong untuk kalimat tulisan orang lain (UJI UTAMA)
-
-PENTING: data ini sintetis. Template latih dan heldout dibedakan supaya terlihat apakah model hanya menghafal
-pola kalimat. Metrik yang paling jujur tetap dari kalimat yang ditulis orang lain (intent_uji_manual.csv).
-"""
 import random
 import re
 from pathlib import Path

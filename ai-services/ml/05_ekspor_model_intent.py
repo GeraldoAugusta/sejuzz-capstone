@@ -1,10 +1,3 @@
-"""Ekspor model intent (joblib) ke JSON agar service bisa memakainya TANPA scikit-learn.
-
-Jalankan dari folder ai-services/ setelah ml/04_latih_intent.py:
-    python3 ml/05_ekspor_model_intent.py
-Keluaran: app/data/model_intent.json (ikut di-commit dan ikut ke container).
-Lalu cek kesamaan hasil dengan model asli: python3 -m pytest tests/test_intent_model.py -q
-"""
 import json
 from pathlib import Path
 

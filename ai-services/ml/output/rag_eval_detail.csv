@@ -1,0 +1,33 @@
+pertanyaan,jenis,diharapkan,top1,skor_top1,hit1,hit3,mesin
+aplikasi ini sebenarnya untuk apa,dalam_topik,tentang-aplikasi,tentang-aplikasi,0.6271,True,True,faiss
+gimana cara pakai kalkulator estimasinya,dalam_topik,cara-pakai,akurasi-estimasi,0.6482,False,True,faiss
+rumus menghitung jumlah cup itu bagaimana,dalam_topik,rumus-hitung,takaran-awal,0.7191,False,True,faiss
+apa maksudnya susut buah,dalam_topik,arti-susut,arti-susut,0.7256,True,True,faiss
+bisa isi berat pakai gram nggak,dalam_topik,satuan-input,satuan-input,0.7434,True,True,faiss
+ukuran cup medium ada nggak,dalam_topik,ukuran-cup,ukuran-cup,0.7305,True,True,faiss
+takaran awal per cup berapa gram,dalam_topik,takaran-awal,takaran-awal,0.7418,True,True,faiss
+siapa yang boleh mengubah takaran,dalam_topik,ubah-takaran,ubah-takaran,0.7249,True,True,faiss
+kenapa hasilnya ada kisaran cup,dalam_topik,rentang-estimasi,rentang-estimasi,0.7059,True,True,faiss
+datanya asli atau simulasi,dalam_topik,data-simulasi,data-simulasi,0.6701,True,True,faiss
+buah apa saja yang bisa dihitung,dalam_topik,buah-tersedia,buah-tersedia,0.735,True,True,faiss
+kalau buahku nggak ada di daftar gimana,dalam_topik,buah-tidak-ada,buah-tidak-ada,0.7639,True,True,faiss
+bisa hitung jus campuran mangga dan nanas sekaligus,dalam_topik,satu-buah,satu-buah,0.7318,True,True,faiss
+kok hasilnya 0 cup,dalam_topik,nol-cup,nol-cup,0.7163,True,True,faiss
+sisa buah itu artinya apa,dalam_topik,sisa-buah,sisa-buah,0.7734,True,True,faiss
+estimasinya bisa dipercaya nggak,dalam_topik,akurasi-estimasi,akurasi-estimasi,0.6908,True,True,faiss
+kenapa rentang kelapa lebar banget,dalam_topik,rentang-lebar,rentang-lebar,0.7011,True,True,faiss
+muncul pesan error jumlah harus lebih dari nol,dalam_topik,pesan-error,pesan-error,0.7148,True,True,faiss
+chat ini bisa nanya apa aja,dalam_topik,fitur-chat,fitur-chat,0.6855,True,True,faiss
+apakah bisa mengelola stok dan transaksi,dalam_topik,batas-asisten,batas-asisten,0.6941,True,True,faiss
+kenapa penjelasannya jadi singkat banget,dalam_topik,asisten-sibuk,asisten-sibuk,0.671,True,True,faiss
+siapa saja pengguna aplikasi ini,dalam_topik,pengguna-aplikasi,pengguna-aplikasi,0.6544,True,True,faiss
+cara membaca angka-angka hasilnya,dalam_topik,baca-hasil,baca-hasil,0.5875,True,True,faiss
+siapa presiden indonesia sekarang,luar_topik,,fitur-chat,0.5462,False,False,faiss
+tolong buatkan puisi tentang hujan,luar_topik,,pesan-error,0.5585,False,False,faiss
+berapa harga semangka per kilo di pasar,luar_topik,,cara-pakai,0.6415,False,False,faiss
+cara menanam pepaya di pot,luar_topik,,buah-tersedia,0.529,False,False,faiss
+resep nasi goreng yang enak,luar_topik,,ubah-takaran,0.5436,False,False,faiss
+bagaimana cuaca besok di jambi,luar_topik,,data-simulasi,0.5239,False,False,faiss
+jelaskan tentang bitcoin,luar_topik,,pengguna-aplikasi,0.5473,False,False,faiss
+cara memperbaiki laptop yang lambat,luar_topik,,ubah-takaran,0.5201,False,False,faiss
+siapa pemenang piala dunia 2022,luar_topik,,rumus-hitung,0.5497,False,False,faiss

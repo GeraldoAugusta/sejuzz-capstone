@@ -1,14 +1,3 @@
-"""Langkah 2 model intent: cek keseimbangan, latih dan bandingkan model, tuning, evaluasi jujur.
-
-Jalankan dari folder ai-services/ (pip install -r requirements-ml.txt, httpx sudah ada di requirements.txt):
-    python3 ml/04_latih_intent.py
-
-Protokol (tiga kelompok data, tidak dicampur):
-  - LATIH      : ml/intent_data/intent_train_pool.csv      (sintetis, template latih)
-  - VALIDASI   : ml/intent_data/intent_heldout_sintetis.csv (sintetis, template berbeda) -> memilih model & hyperparameter
-  - UJI AKHIR  : ml/intent_data/intent_uji_manual.csv       (ditulis tim + dibantu AI) -> dilaporkan SEKALI, tidak dipakai menyetel
-Model akhir untuk deploy dilatih ulang pada LATIH + VALIDASI setelah evaluasi selesai.
-"""
 import sys
 from pathlib import Path
 
