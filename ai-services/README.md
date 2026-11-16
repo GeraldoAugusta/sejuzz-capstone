@@ -126,6 +126,10 @@ Total 16 uji, gagal 0.
 - Timeout, retry untuk error sementara, model cadangan (`LLM_FALLBACK_MODELS`), batas waktu total, dan balasan template bila LLM gagal. Format error seragam `{"error": {"code", "message"}}`.
 - `X-API-Key` (`SERVICE_API_KEY`) melindungi semua `/api/v1/...`.
 
+## Kanal Telegram
+
+Asisten dapat diakses lewat bot Telegram (`app/kanal/`, `docs/KANAL_TELEGRAM.md`). Webhook dilindungi rahasia dari Telegram (`X-Telegram-Bot-Api-Secret-Token`), dijawab di latar belakang, dengan batas laju dan daftar izin opsional. Jawaban memakai alur yang sama dengan `/api/v1/ai/chat`. Batasan: chat pribadi dan teks saja, takaran bawaan service.
+
 ## Deploy
 
 - URL: (Back4app Containers, url selalu berganti karena belum bisa fix).
