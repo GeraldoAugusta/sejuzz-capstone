@@ -6,7 +6,7 @@ apa maksudnya susut buah,dalam_topik,arti-susut,arti-susut,0.7256,True,True,fais
 bisa isi berat pakai gram nggak,dalam_topik,satuan-input,satuan-input,0.7434,True,True,faiss
 ukuran cup medium ada nggak,dalam_topik,ukuran-cup,ukuran-cup,0.7305,True,True,faiss
 takaran awal per cup berapa gram,dalam_topik,takaran-awal,takaran-awal,0.7418,True,True,faiss
-siapa yang boleh mengubah takaran,dalam_topik,ubah-takaran,ubah-takaran,0.7249,True,True,faiss
+siapa yang boleh mengubah takaran,dalam_topik,ubah-takaran,ubah-takaran,0.6908,True,True,faiss
 kenapa hasilnya ada kisaran cup,dalam_topik,rentang-estimasi,rentang-estimasi,0.7059,True,True,faiss
 datanya asli atau simulasi,dalam_topik,data-simulasi,data-simulasi,0.6701,True,True,faiss
 buah apa saja yang bisa dihitung,dalam_topik,buah-tersedia,buah-tersedia,0.735,True,True,faiss
@@ -26,8 +26,8 @@ siapa presiden indonesia sekarang,luar_topik,,fitur-chat,0.5462,False,False,fais
 tolong buatkan puisi tentang hujan,luar_topik,,pesan-error,0.5585,False,False,faiss
 berapa harga semangka per kilo di pasar,luar_topik,,cara-pakai,0.6415,False,False,faiss
 cara menanam pepaya di pot,luar_topik,,buah-tersedia,0.529,False,False,faiss
-resep nasi goreng yang enak,luar_topik,,ubah-takaran,0.5436,False,False,faiss
+resep nasi goreng yang enak,luar_topik,,satuan-input,0.535,False,False,faiss
 bagaimana cuaca besok di jambi,luar_topik,,data-simulasi,0.5239,False,False,faiss
 jelaskan tentang bitcoin,luar_topik,,pengguna-aplikasi,0.5473,False,False,faiss
-cara memperbaiki laptop yang lambat,luar_topik,,ubah-takaran,0.5201,False,False,faiss
+cara memperbaiki laptop yang lambat,luar_topik,,arti-susut,0.515,False,False,faiss
 siapa pemenang piala dunia 2022,luar_topik,,rumus-hitung,0.5497,False,False,faiss

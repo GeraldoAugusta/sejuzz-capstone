@@ -8,7 +8,7 @@ REFUSAL = ("Maaf, aku cuma bisa bantu soal estimasi cup jus Sejuzz: berapa cup d
            "takaran per cup, atau susut buah. Coba tanya, misalnya: \"5 kg semangka jadi berapa cup large?\"")
 HELP = ("Cara pakai: pilih jenis buah, isi berat (kg) atau jumlah buah, pilih ukuran cup (small atau large), "
         "lalu lihat estimasi cup dan sisa buahnya. Kamu juga bisa langsung mengetik pertanyaan di sini, "
-        "contohnya \"5 kg semangka jadi berapa cup large?\". Takaran per cup bisa diubah oleh owner di menu pengaturan takaran.")
+        "contohnya \"5 kg semangka jadi berapa cup large?\". Takaran per cup bisa diubah oleh owner di halaman Pengaturan (setelah login).")
 
 
 GREETINGS = {"halo", "hallo", "hai", "hi", "hello", "helo", "p", "pagi", "siang", "sore", "malam", "assalamualaikum",
