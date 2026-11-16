@@ -132,8 +132,8 @@ Asisten dapat diakses lewat bot Telegram (`app/kanal/`, `docs/KANAL_TELEGRAM.md`
 
 ## Deploy
 
-- URL: (Back4app Containers, url selalu berganti karena belum bisa fix).
-- Variabel lingkungan (isi di dashboard, bukan di repo): `LLM_API_KEY`, `LLM_MODEL`, `LLM_FALLBACK_MODELS`, `SERVICE_API_KEY`, `RAG_AMBANG`, `ALLOWED_ORIGINS`.
+- URL: sejuzz-capstone-production-362bebe7.up.railway.app (Railway: Reset setiap 1 Bulan).
+- Variabel lingkungan : `LLM_API_KEY`, `LLM_MODEL`, `LLM_FALLBACK_MODELS`, `SERVICE_API_KEY`, `RAG_AMBANG`, `ALLOWED_ORIGINS`.
 - Container berkapasitas kecil, sehingga model intent dan sentimen dihitung dalam Python murni (tanpa scikit-learn).
 
 ## Menjalankan dan menguji
